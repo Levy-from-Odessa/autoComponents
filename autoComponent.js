@@ -1,54 +1,72 @@
 const chokidar = require("chokidar");
-const fs = require("fs");
-const componentTemplate = require('./templates/component')
 
-const fileExists = path => file => fs.existsSync(`${path}/${file}`);
+const factory = require("./factory/index")
 
-const writeToPath = path => (file, content) => {
-  const filePath = `${path}/${file}`;
 
-  fs.writeFile(filePath, content, err => {
-    if (err) throw err;
-    console.log("Created file: ", filePath);
-    return true;
-  });
-};
-/* 
-  @params path  - the folder was created
-  @params name  - it name
-*/
-function createFiles(path, name) {
-  const files = {
-    index: "index.jsx",
-    test: `${name}.test.js`,
-    sass: `${name}.sass`
-  };
 
-  if (name !== "components") {
-    const writeFile = writeToPath(path);
-    const toFileMissingBool = file => !fileExists(path)(file);
-    const checkAllMissing = (acc, cur) => acc && cur;
+function getFileName(path){
+    // get file
+    const pathArray = path.split('/')
+    const file = pathArray[pathArray.length - 1]
 
-      console.log('resatrt');
-    const noneExist = Object.values(files)
-      .map(toFileMissingBool)
-      .reduce(checkAllMissing);
-
-    if (noneExist) {
-      console.log(`Detected new component: ${name}, ${path}`);
-      Object.entries(files).forEach(([type, fileName]) => {
-        writeFile(fileName, componentTemplates[type](name));
-      });
+    let template = 'single'
+    let name = file
+    
+    
+    if (!name.includes("/")) {
+      return name 
     }
-  }
+    
+} 
+function getProps(file) {
+    let name = file
+    let template = 'single'
+
+    const typeFile = file[0]
+    if (typeFile === typeFile.toLowerCase()) {
+    name = file.slice(1, file.length)
+      if (typeFile === 's') {
+        template = 'single'
+      }
+      if (typeFile === 'f') {
+        template = 'full'
+      }
+    }else {
+      return
+    }
+
+    return {name , template}
+
 }
 
-chokidar
-  .watch("src/components/**", { ignored: /node_modules/ })
-  .on("addDir", (path, event) => {
-    const name = path.replace(/.*\/components\//, "");
-      console.log(name);
-    if (!name.includes("/")) {
-      createFiles(path, name);
+const componentWatcher = chokidar
+  .watch("components/**/**", { ignored: /node_modules/ })
+
+
+const storeWatcher = chokidar
+  .watch("store/**/**", { ignored: /node_modules/ })
+  
+
+componentWatcher.on("addDir", (path, event) => {
+    const file = getFileName(path)
+    if (file === 'components') {return}
+
+
+    const fileInfo = getProps(file);
+    if (fileInfo) {
+      const { name, template } = fileInfo
+      factory.createFiles(path, name,  template, 'components')
+    }
+  });
+
+storeWatcher.on("addDir", (path, event) => {
+    const file = getFileName(path)
+    if (file === 'store') {return}
+
+
+    const fileInfo = getProps(file);
+    if (fileInfo) {
+      const { name, template } = fileInfo
+      factory.createFiles(path, name,  template, 'store')
     }
   });
