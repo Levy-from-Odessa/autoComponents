@@ -55,7 +55,7 @@ componentWatcher.on("addDir", (path, event) => {
     const fileInfo = getProps(file);
     if (fileInfo) {
       const { name, template } = fileInfo
-      factory.createFiles(path, name,  template, 'components')
+      factory.createFiles(path, name,  template, 'component')
     }
   });
 

@@ -2,13 +2,14 @@
   "dependencies": {
     "chokidar": "^3.5.1",
     "fs": "^0.0.1-security",
-    "nodemon": "^2.0.7"
+    "fs-extra": "^9.1.0",
+    "nodemon": "^2.0.7",
+    "swig": "^1.4.2"
   },
   "name": "autogenerate",
   "description": "https://www.freecodecamp.org/news/how-to-create-files-automatically-and-save-time-with-magic-scaffolding-8dcd1b31483/",
   "version": "1.0.0",
   "main": "autoComponent.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon autoComponent.js"

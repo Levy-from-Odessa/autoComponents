@@ -1,10 +1,20 @@
 
 const fs = require("fs");
+const swig = require("swig")
+const BLUEPRINT_DIR = process.cwd() + '/blueprints'
+
 const componentTemplates = require('./componentTemplates.js')
-// const storeTemplates = require('./storeTemplates.js')
+const storeTemplates = require('./storeTemplates.js')
+
+const templateStorage = {
+  component: componentTemplates,
+  store: storeTemplates
+}
 
 
 
+
+// create file with data
 const writeToPath = path => (file, content) => {
   const filePath = `${path}/${file}`;
 
@@ -15,7 +25,7 @@ const writeToPath = path => (file, content) => {
   });
 };
 
-
+// check existing of file
 function noneExist(files, path, name) {
     const fileExists = path => file => fs.existsSync(`${path}/${file}`);
 
@@ -30,19 +40,28 @@ function noneExist(files, path, name) {
 }
 
 
-function createFiles(path, name, template, type) {
-    const writePath = writeToPath(path)
+// render template with props
+function compileTpl(file, {name}){ // actions?, filesType?
+  const compiled = swig.compileFile(file)
+  return compiled({name})
+}  
 
-    console.log(`Detected new component: ${name}, ${path}`);
-    const files = componentTemplates[template]
 
 
-    if(noneExist(files, path, name)){
+function createFiles(filePath, name, template, type) {
+    const writePath = writeToPath(filePath)
+
+    console.log(`Detected new component: ${name}, ${filePath}`);
+    const files = templateStorage[type][template]
+
+
+    if(noneExist(files, filePath, name)){
       Object.entries(files).forEach(([template, value]) => {
-          const templateContent = value(name)
-        writePath( templateContent.file, templateContent.content);
+        const templateContent = value(name)
+        const tpl = compileTpl(BLUEPRINT_DIR + templateContent.content, {name})
+          writePath(templateContent.file, tpl);
       });
     }
 }
 
-module.exports = {createFiles}
+module.exports = { createFiles }

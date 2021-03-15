@@ -1,104 +1,36 @@
+const FULL_COMPONENT_DIR = '/components/full/'
+const SINGLE_COMPONENT_DIR = '/components/single/'
+
 const templates = {
+    // FULL
     full: {
         index: name => ({
             file: 'index.vue',
-            content:  
-            `
-// Html
-<template>
-
-</template>
-
-// Script 
-<script src="./${name}.js"></script>
-
-
-// Styles
-<style lang="scss" module>
-@import './style;
-</style>
-    `,
+            content: FULL_COMPONENT_DIR + 'index.vue'
         }),
+
         js: name => ({
             file: `${name}.js`,
-            content: 
-    `
-import { mapActions, mapGetters } from 'vuex
+            content: FULL_COMPONENT_DIR + 'script.js'
 
-
-export default{
-  name: ${name},
-  data(){
-    return{
-
-    }
-  },
-
-  methods:{
-
-  },
-
-  computed:{
-
-  },
-
-  mounted(){
-
-  }
-}
-    `,
         }),
 
         scss: name => ({
-            file: `${name}.scss`,
-            content: 
-    `
-.${name.toLowerCase()}{
-  color: initial;
-  background: initial;
-}
-    `
+            file: `style.scss`,
+            content: FULL_COMPONENT_DIR + 'style.scss'
+
         })
 
     },
 
+
+
+
+    // SINGLE
     single: {
         index: name => ({
             file: 'index.vue',
-            content: 
-`
-<template>
-    <div>
-    </div>
-</template
-
-<script>
-import { mapGetters, mapActions } from 'vuex'
-export default{
-    name: '${name}'
-    data(){
-        return{
-
-        }
-    },
-
-    methods:{
-
-    }
-
-    computed: {
-
-    }
-
-    mounted(){
-
-    }
-}
-
-</script>
-
-
-`
+            content: SINGLE_COMPONENT_DIR + 'index.vue'
         })
 
     }
