@@ -6,6 +6,10 @@ const factory = require("./factory/index")
 
 const { error, success } = require('./messages')
 
+// TODO find root folder
+const splitedDirname = __dirname.split('/')
+const rootSplitedDirname = splitedDirname.slice(0, splitedDirname.length - 2)
+const rootFolder = rootSplitedDirname.join('/')
 
 function isEmptyDir(path) {
     return fs.readdirSync(path).length === 0;
@@ -53,7 +57,7 @@ function watchSetup(path, type){
     const fileInfo = getProps(file);
     if (fileInfo) {
       const { name, template } = fileInfo
-      const newPath = `${type}/${name}`
+      const newPath = `${rootFolder}/${type}/${name}`
       try {
         if (!fs.existsSync(newPath)) {
           fs.renameSync(path, newPath);
@@ -76,14 +80,15 @@ function watchSetup(path, type){
 // !MAIN
 
 
+success('Start watching')
 const componentWatcher = chokidar
-  .watch("components/**/**", { ignored: /node_modules/ })
+  .watch(rootFolder + "/components/**/**", { ignored: /node_modules/ })
 
 const pageWatcher = chokidar
-  .watch("pages/**/**", { ignored: /node_modules/ })
+  .watch(rootFolder + "/pages/**/**", { ignored: /node_modules/ })
 
 const storeWatcher = chokidar
-  .watch("store/**/**", { ignored: /node_modules/ })
+  .watch(rootFolder + "/store/**/**", { ignored: /node_modules/ })
   
 
 
