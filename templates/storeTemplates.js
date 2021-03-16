@@ -29,7 +29,7 @@ const templates = {
     // SINGLE
     single: {
         index: name => ({
-            file: `${name}.js`,
+            file: `index.js`,
             content: SINGLE_STORE_DIR + 'index.js'
         })
 

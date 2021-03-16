@@ -4,7 +4,7 @@
 </template>
 
 // Script 
-<script src='./D.js'></script>
+<script src='./{{name}}.js'></script>
 
 
 // Styles

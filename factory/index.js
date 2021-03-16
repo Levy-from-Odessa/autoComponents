@@ -1,14 +1,20 @@
-
 const fs = require("fs");
 const swig = require("swig")
 const BLUEPRINT_DIR = process.cwd() + '/blueprints'
 
-const componentTemplates = require('./componentTemplates.js')
-const storeTemplates = require('./storeTemplates.js')
+const componentTemplates = require('../templates/componentTemplates.js')
+const storeTemplates = require('../templates/storeTemplates.js')
+const pageTemplates = require('../templates/pageTemplates.js')
+
+
+const { error, success } = require('../messages')
+
+
 
 const templateStorage = {
-  component: componentTemplates,
-  store: storeTemplates
+  components: componentTemplates,
+  store: storeTemplates,
+  pages: pageTemplates
 }
 
 
@@ -19,8 +25,8 @@ const writeToPath = path => (file, content) => {
   const filePath = `${path}/${file}`;
 
   fs.writeFile(filePath, content, err => {
-    if (err) throw err;
-    console.log("Created file: ", filePath);
+    if (err){ error(err); throw err};
+    success(`Created file: ${filePath}`);
     return true;
   });
 };
@@ -51,7 +57,7 @@ function compileTpl(file, {name}){ // actions?, filesType?
 function createFiles(filePath, name, template, type) {
     const writePath = writeToPath(filePath)
 
-    console.log(`Detected new component: ${name}, ${filePath}`);
+    success(`Detected new component: ${name}, ${filePath}`);
     const files = templateStorage[type][template]
 
 
