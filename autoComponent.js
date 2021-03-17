@@ -57,7 +57,9 @@ function watchSetup(path, type){
     const fileInfo = getProps(file);
     if (fileInfo) {
       const { name, template } = fileInfo
-      const newPath = `${rootFolder}/${type}/${name}`
+      const newPathArray = path.split('/')
+      newPathArray.splice(newPathArray.length - 1, 1, name)
+      const newPath = newPathArray.join('/')
       try {
         if (!fs.existsSync(newPath)) {
           fs.renameSync(path, newPath);
