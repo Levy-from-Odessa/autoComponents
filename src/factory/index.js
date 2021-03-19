@@ -1,6 +1,6 @@
 const fs = require("fs");
 const swig = require("swig")
-const BLUEPRINT_DIR = process.cwd() + '/src/blueprints'
+const path = require('path');
 
 const componentTemplates = require('../templates/componentTemplates.js')
 const storeTemplates = require('../templates/storeTemplates.js')
@@ -10,6 +10,7 @@ const pageTemplates = require('../templates/pageTemplates.js')
 const { error, success } = require('../messages')
 
 
+const BLUEPRINT_DIR =  path.dirname(require.main.filename) +'/blueprints'
 
 const templateStorage = {
   components: componentTemplates,

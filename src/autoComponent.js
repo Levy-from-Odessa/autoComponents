@@ -85,16 +85,16 @@ function watchSetup(path, type){
 
 // !MAIN
 
-console.log(path.dirname(require.main.filename));
+console.log(path.dirname(require.main.filename), process.cwd());
 success('Start watching'  )
 const componentWatcher = chokidar
-  .watch( __dirname + "/components/**/**", { ignored: /node_modules/ })
+  .watch( process.cwd() + "/components/**/**", { ignored: /node_modules/ })
 
 const pageWatcher = chokidar
-  .watch( __dirname + "/pages/**/**", { ignored: /node_modules/ })
+  .watch( process.cwd() + "/pages/**/**", { ignored: /node_modules/ })
 
 const storeWatcher = chokidar
-  .watch(__dirname + "/store/**/**", { ignored: /node_modules/ })
+  .watch( process.cwd() + "/store/**/**", { ignored: /node_modules/ })
   
 
 
