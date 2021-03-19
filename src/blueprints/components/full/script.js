@@ -2,21 +2,25 @@
 import { mapActions, mapGetters } from 'vuex'
 
 
-export default{
+export default {
   name: {{name}},
-  data(){
+
+  data () {
     return{
 
     }
   },
 
-,
+  mounted () {
+    
+  },
 
-  computed:{
+
+  computed: {
 
   },
 
-  mounted(){
+  watch: {
 
-  }
+  },
 }

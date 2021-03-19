@@ -1,13 +1,36 @@
-// Html
 <template>
+    <div class="{{name}}">
 
+    </div>
 </template>
 
-// Script 
-<script src='./{{name}}.js'></script>
+<script>
+import { mapActions, mapGetters } from 'vuex'
 
 
-// Styles
+export default {
+  name: {{name}},
+
+  data(){
+    return{
+
+    }
+  },
+
+  computed:{
+
+  },
+
+  mounted(){
+
+  }
+}
+</script>
+
+
 <style lang="scss" module>
-@import './style;
+.{{name}}{
+  color: initial;
+  background: initial;
+}
 </style>

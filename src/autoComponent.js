@@ -2,7 +2,6 @@
 
 
 const fs = require('fs');
-const path = require('path');
 
 const chokidar = require("chokidar");
 
@@ -85,7 +84,6 @@ function watchSetup(path, type){
 
 // !MAIN
 
-console.log(path.dirname(require.main.filename), process.cwd());
 success('Start watching'  )
 const componentWatcher = chokidar
   .watch( process.cwd() + "/components/**/**", { ignored: /node_modules/ })
