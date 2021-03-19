@@ -1,6 +1,6 @@
 const fs = require("fs");
 const swig = require("swig")
-const BLUEPRINT_DIR = process.cwd() + '/blueprints'
+const BLUEPRINT_DIR = process.cwd() + '/src/blueprints'
 
 const componentTemplates = require('../templates/componentTemplates.js')
 const storeTemplates = require('../templates/storeTemplates.js')

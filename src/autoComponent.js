@@ -86,15 +86,15 @@ function watchSetup(path, type){
 // !MAIN
 
 
-success('Start watching')
+success('Start watching' + __dirname)
 const componentWatcher = chokidar
-  .watch(rootFolder + "/components/**/**", { ignored: /node_modules/ })
+  .watch( __dirname + "/components/**/**", { ignored: /node_modules/ })
 
 const pageWatcher = chokidar
-  .watch(rootFolder + "/pages/**/**", { ignored: /node_modules/ })
+  .watch( __dirname + "/pages/**/**", { ignored: /node_modules/ })
 
 const storeWatcher = chokidar
-  .watch(rootFolder + "/store/**/**", { ignored: /node_modules/ })
+  .watch(__dirname + "/store/**/**", { ignored: /node_modules/ })
   
 
 
