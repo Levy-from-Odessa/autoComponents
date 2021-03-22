@@ -15,7 +15,7 @@
   "main": "autoComponent.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon autoComponent.js"
+    "start": "nodemon src/autoComponent.js"
   },
   "keywords": [
     "auto generate",

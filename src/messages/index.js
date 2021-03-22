@@ -1,5 +1,15 @@
 const chalk = require('chalk')
 
+const swig = require("swig")
+
+// render template with props
+function compileTpl(file, args){ 
+  const compiled = swig.compileFile(file)
+  return compiled(args)
+}  
+const tpl = compileTpl('./src/blueprints/message/error.js', {name: 123})
+// console.log(tpl);
+// writePath(templateContent.file, tpl);
 /* 
 ** Console wrappers
 */
@@ -23,35 +33,22 @@ const detailMessage = (color, args) => {
     }
 }
 
-const containerMessage = (Border, content) => {
-    const width = content.length / 3
-    const container =
-`${Border.repeat(width)} 
-${content}
-${Border.repeat(width)}`
-
-    return container
-}
 
 const error = (args) => {
     const {Bg, Title, Msg, Border} = detailMessage('Red', args)
-    console.error(
-        containerMessage(
-            Border, 
-            `    ${Bg}${Title}${Bg}
-    ${Msg}`
-             ));
+    const tpl = compileTpl('./src/blueprints/message/error.js', {
+        Bg, Title, Msg, Border
+    })
+    console.log(tpl);
 }
 
 
 const success = (args) => {
     const {Bg, Title, Msg, Border} = detailMessage('Green', args)
-    console.log(
-        containerMessage(
-            Border, 
-            `    ${Bg}${Title}${Bg}
-    ${Msg}`
-             ));
+    const tpl = compileTpl('./src/blueprints/message/success.js', {
+        Bg, Title, Msg, Border
+    })
+    console.log(tpl);
 }
 
 
