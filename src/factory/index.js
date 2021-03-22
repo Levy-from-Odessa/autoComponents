@@ -66,7 +66,7 @@ function createFiles(filePath, name, template, type) {
       Object.entries(files).forEach(([template, value]) => {
         const templateContent = value(name)
         const tpl = compileTpl(BLUEPRINT_DIR + templateContent.content, {name})
-          writePath(templateContent.file, tpl);
+        writePath(templateContent.file, tpl);
       });
     }
 }
