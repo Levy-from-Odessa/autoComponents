@@ -1,20 +1,20 @@
 
 
-  import * as {{name}}Actions from './actions';
-  import {{name}}Mutations from './mutations ';
+import * as {{name}}Actions from './actions';
+import {{name}}Mutations from './mutations ';
 
-  const {{name}}Getters = {
+const {{name}}Getters = {
 
-  }
+}
 
-  const {{name}}State = () => ({
+const {{name}}State = () => ({
 
-  })
-  
-  export default {
-    namespace: true,
-    state: {{name}}State,
-    getters: {{name}}Getters ,
-    actions: {{name}}Actions,
-    mutations: {{name}}Mutations
-  };
+})
+
+export default {
+  namespace: true,
+  state: {{name}}State,
+  getters: {{name}}Getters ,
+  actions: {{name}}Actions,
+  mutations: {{name}}Mutations
+};

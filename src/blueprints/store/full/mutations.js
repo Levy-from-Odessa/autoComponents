@@ -1,7 +1,6 @@
 
-  import * as types from './mutation_types'
+import * as types from './mutation_types' 
 
+export default {
 
-  export default {
-
-  }
+}

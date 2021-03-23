@@ -11,7 +11,7 @@
     "vuetcher": "src/autoComponent.js"
   },
   "description": "https://www.freecodecamp.org/news/how-to-create-files-automatically-and-save-time-with-magic-scaffolding-8dcd1b31483/",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "autoComponent.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,7 +22,10 @@
     "vue components",
     "vue",
     "watcher",
-    "auto generate component"
+    "auto generate component",
+    "nuxt",
+    "nuxt watch",
+    "nuxt components"
   ],
   "repository": {
     "type": "git",
