@@ -1,4 +1,4 @@
-# vuetcher (for nuxtjs)
+# vuetcher (for vuejs && nuxtjs)
 
 ![Examples](/assets/full_component.gif)
 
