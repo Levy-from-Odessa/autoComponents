@@ -38,7 +38,8 @@ Two options of type folder:
 - s - single
 - f- full.
 
-![Naming](../assets/naming.png)
+![Naming](/assets/naming.png)
+![Examples](/assets/example.png)
 
 <!-- ![caption](../assets/components_example.movie.gif) -->
 
