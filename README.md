@@ -1,59 +1,54 @@
-#vuetcher (for nuxtjs)
+# vuetcher (for nuxtjs)
 
-### package for auto genererating vue components., modules, services, pages. 
-
+### package for auto genererating vue components., modules, services, pages.
 
 Insatll
 
-	npm  i  vuetcher
+    npm  i  vuetcher
 
 or
 
-	yarn add vuetcher
-
+    yarn add vuetcher
 
 Add to package.json file
 
-	{
-		"scripts":{
-			"dev": "nuxt & vuetcher"
-			}
-		}
+    {
+    	"scripts":{
+    		"dev": "nuxt & vuetcher"
+    		}
+    	}
+
 (&& - run commands async, & - run commands parallel )
 
-
-**And run your application **
-	
-	yarn dev
+** And run your application **
+yarn dev
 
 or
 
-	npm run dev
+    npm run dev
 
+---
 
-------------
+#### How does it work
 
-#### How its work
+Just create new folder in directory you wish generate files while you are running "dev" script.
 
-Just create new folder in dirictory you wish generate files while you are running "dev" script.
+Two options of type folder:
 
-Two optins of type folder:
 - s - single
 - f- full.
 
 ![Example](/assets/example.png)
 
-
-
 todo:
+
 1. rewrite on ts
 2. vue3 components
 3. improve alerts
 
+Thank you, will glad to help you
 
-Thank you, will glad to help you 
+# **RESPECT**
 
-
-#**RESPECT**
 *https://www.freecodecamp.org/news/how-to-create-files-automatically-and-save-time-with-magic-scaffolding-8dcd1b31483/*
 *https://www.npmjs.com/package/vue-generate-component*

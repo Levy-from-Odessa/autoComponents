@@ -7,9 +7,7 @@ function compileTpl(file, args){
   const compiled = swig.compileFile(file)
   return compiled(args)
 }  
-const tpl = compileTpl('./src/blueprints/message/error.js', {name: 123})
-// console.log(tpl);
-// writePath(templateContent.file, tpl);
+
 /* 
 ** Console wrappers
 */
@@ -36,7 +34,7 @@ const detailMessage = (color, args) => {
 
 const error = (args) => {
     const {Bg, Title, Msg, Border} = detailMessage('Red', args)
-    const tpl = compileTpl('./src/blueprints/message/error.js', {
+    const tpl = compileTpl( 'src/blueprints/message/error.js', {
         Bg, Title, Msg, Border
     })
     console.log(tpl);
@@ -45,7 +43,7 @@ const error = (args) => {
 
 const success = (args) => {
     const {Bg, Title, Msg, Border} = detailMessage('Green', args)
-    const tpl = compileTpl('./src/blueprints/message/success.js', {
+    const tpl = compileTpl(  'src/blueprints/message/success.js', {
         Bg, Title, Msg, Border
     })
     console.log(tpl);
