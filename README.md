@@ -73,9 +73,9 @@ name: {{name}},
     	mounted(){
 
     	}
+    	}
+    </script>
 
-}
-</script>
 
     <style lang="scss" module>
     .{{name}}{
