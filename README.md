@@ -216,7 +216,7 @@ style.scss
 
 index.js
 
-    import \* as {{name}}Actions from './actions';
+    import * as {{name}}Actions from './actions';
     import {{name}}Mutations from './mutations ';
 
     const {{name}}Getters = {

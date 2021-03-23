@@ -11,7 +11,7 @@ export default {
     }
   },
 
-  mounted () {
+ {
     
   },
 
@@ -22,5 +22,5 @@ export default {
 
   watch: {
 
-  },
+  }
 }
