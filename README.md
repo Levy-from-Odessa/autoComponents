@@ -17,8 +17,8 @@ Add to package.json file
     {
     	"scripts":{
     		"dev": "nuxt & vuetcher"
-    		}
     	}
+    }
 
 (&& - run commands async, & - run commands parallel )
 
@@ -58,33 +58,32 @@ Two options of type folder:
     </template>
 
     <script>
-    import { mapActions, mapGetters } from 'vuex'
+    	import { mapActions, mapGetters } from 'vuex'
 
+    	export default {
+    		name: {{name}},
 
-    export default {
-    name: {{name}},
+    		data(){
+    			return{
 
-    data(){
-    	return{
+    			}
+    		},
 
+    		computed:{
+
+    		},
+
+    		mounted(){
+
+    		}
     	}
-    },
-
-    computed:{
-
-    },
-
-    mounted(){
-
-    }
-    }
     </script>
 
 
     <style lang="scss" module>
     .{{name}}{
-    color: initial;
-    background: initial;
+    	color: initial;
+    	background: initial;
     }
     </style>
 
@@ -108,26 +107,26 @@ script.js
 
 
     export default {
-    name: {{name}},
+    	name: {{name}},
 
-    data () {
-    	return{
+    	data () {
+    		return{
+
+    		}
+    	},
+
+    	mounted () {
+
+    	},
+
+
+    	computed: {
+
+    	},
+
+    	watch: {
 
     	}
-    },
-
-    mounted () {
-
-    },
-
-
-    computed: {
-
-    },
-
-    watch: {
-
-    },
     }
 
 style.scss
@@ -154,29 +153,29 @@ style.scss
 
 
     export default {
-    name: {{name}},
+    	name: {{name}},
 
-    data(){
-    	return{
+    	data(){
+    		return{
+
+    		}
+    	},
+
+    	computed:{
+
+    	},
+
+    	mounted(){
 
     	}
-    },
-
-    computed:{
-
-    },
-
-    mounted(){
-
-    }
     }
     </script>
 
 
     <style lang="scss" module>
     .{{name}}{
-    color: initial;
-    background: initial;
+    	color: initial;
+    	background: initial;
     }
     </style>
 
@@ -202,16 +201,15 @@ style.scss
 
     import { makeCrudModule } from '~/mixins/Generator/MixinStore'
     const { state, actions, getters, mutations } = makeCrudModule({
-    namespace: '{{name}}'
+    	namespace: '{{name}}'
     })
 
     export default {
-    namespace: true,
-    state,
-    getters,
-    mutations,
-    actions
-
+    	namespace: true,
+    	state,
+    	getters,
+    	mutations,
+    	actions
     }
 
 #### Full (f)
@@ -230,11 +228,11 @@ index.js
     })
 
     export default {
-    namespace: true,
-    state: {{name}}State,
-    getters: {{name}}Getters ,
-    actions: {{name}}Actions,
-    mutations: {{name}}Mutations
+    	namespace: true,
+    	state: {{name}}State,
+    	getters: {{name}}Getters ,
+    	actions: {{name}}Actions,
+    	mutations: {{name}}Mutations
     };
 
 actions.js
@@ -245,11 +243,11 @@ actions.js
 
     export const FAN = ({commit}) =>  {
 
-    try{
+    	try{
 
-    } catch{
+    	} catch{
 
-    }
+    	}
     };
 
 mutations.js
