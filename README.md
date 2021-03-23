@@ -1,5 +1,7 @@
 # vuetcher (for nuxtjs)
 
+![Examples](/assets/full_component.gif)
+
 ### package for auto generating vue components, modules, services, pages.
 
 Install
@@ -39,8 +41,6 @@ Two options of type folder:
 
 - s - single
 - f- full.
-
-![Examples](/assets/full_component.png)
 
 <!-- ![caption](../assets/components_example.movie.gif) -->
 
