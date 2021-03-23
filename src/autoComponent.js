@@ -1,10 +1,18 @@
 #!/usr/bin/env node
+const fs = require("fs");
 const chokidar = require('chokidar')
 const { watchSetup } = require('./watch_setup/index')
 const {  success } = require('./messages')
 // !MAIN
 
-success('Start watching'  )
+const WORK_PLACE = fs.existsSync(process.cwd() + '/src') 
+    ? process.cwd() + '/src/' // vue project
+    : process.cwd() // nuxt project
+
+console.log(WORK_PLACE);
+
+console.log(WORK_PLACE);
+success('Start watching'   )
 const componentWatcher = chokidar
   .watch( process.cwd() + "/components/**/**", { ignored: /node_modules/ })
 
