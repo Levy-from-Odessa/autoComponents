@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const chokidar = require('chokidar')
-const watchSetup = require('./watch_setup/index')
+const { watchSetup } = require('./watch_setup/index')
 const {  success } = require('./messages')
 // !MAIN
 
