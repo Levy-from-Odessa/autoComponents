@@ -10,7 +10,7 @@ Install
 
 or
 
-yarn add vuetcher
+    yarn add vuetcher
 
 Add to package.json file
 
@@ -23,7 +23,8 @@ Add to package.json file
 (&& - run commands async, & - run commands parallel )
 
 **And run your application**
-yarn dev
+
+    yarn dev
 
 or
 
@@ -42,11 +43,6 @@ Two options of type folder:
 
 ![Name](/assets/naming.png)
 
--
--
--
--
-
 ### components
 
 #### Single (s)
@@ -58,27 +54,28 @@ Two options of type folder:
     </template>
 
     <script>
-    	import { mapActions, mapGetters } from 'vuex'
 
-    	export default {
-    		name: {{name}},
+import { mapActions, mapGetters } from 'vuex'
 
-    		data(){
-    			return{
+export default {
+name: {{name}},
 
-    			}
-    		},
-
-    		computed:{
-
-    		},
-
-    		mounted(){
+    	data(){
+    		return{
 
     		}
-    	}
-    </script>
+    	},
 
+    	computed:{
+
+    	},
+
+    	mounted(){
+
+    	}
+
+}
+</script>
 
     <style lang="scss" module>
     .{{name}}{
