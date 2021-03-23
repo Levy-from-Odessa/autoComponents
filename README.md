@@ -33,8 +33,6 @@ or
 
 #### How does it work
 
-![Examples](/assets/example.png)
-
 Just create new folder in directory you wish generate files while you are running "dev" script.
 
 Two options of type folder:
@@ -42,7 +40,12 @@ Two options of type folder:
 - s - single
 - f- full.
 
-<!-- ![caption](../assets/components_example.movie.gif) -->
+![Name](/assets/naming.png)
+
+-
+-
+-
+-
 
 ### components
 
