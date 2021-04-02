@@ -9,7 +9,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
-  name: {{name}},
+  name: '{{name}}',
 
   data(){
     return{
