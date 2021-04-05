@@ -55,10 +55,10 @@ Two options of type folder:
 
     <script>
 
-import { mapActions, mapGetters } from 'vuex'
+    import { mapActions, mapGetters } from 'vuex'
 
-export default {
-name: {{name}},
+    export default {
+    name: {{name}},
 
     	data(){
     		return{
