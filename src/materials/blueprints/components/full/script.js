@@ -3,7 +3,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
-  name: {{name}},
+  name: {{filePath|fullName|camelCase}},
 
   data () {
     return{
@@ -11,7 +11,7 @@ export default {
     }
   },
 
-  mounted () {
+ {
     
   },
 

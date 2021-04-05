@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const factory = require("../factory/index")
 
-const { error, success } = require('../messages')
+const { error, success } = require('../materials/messages')
 
 
 function isEmptyDir(path) {
@@ -31,12 +31,22 @@ function getProps(file) {
     const typeFile = file[0]
     if (typeFile === typeFile.toLowerCase()) {
     name = file.slice(1, file.length)
-      if (typeFile === 's') {
+
+      switch (typeFile) {
+        case 's':
         template = 'single'
-      }
-      if (typeFile === 'f') {
+          break;
+        case 'f':
         template = 'full'
+          break;
+        case 'd':
+        template = 'default'
+          break;
+      
+        default:
+          return
       }
+
     }else {
       return
     }

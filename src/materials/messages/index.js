@@ -3,13 +3,15 @@ const chalk = require('chalk')
 const swig = require("swig")
 
 const path = require('path');
+
+
 // render template with props
 function compileTpl(file, args){ 
   const compiled = swig.compileFile(file)
   return compiled(args)
 }  
 
-const BLUEPRINT_DIR =  path.dirname(require.main.filename) +'/blueprints'
+const BLUEPRINT_DIR =  path.dirname(require.main.filename) +'/materials/blueprints'
 /* 
 ** Console wrappers
 */

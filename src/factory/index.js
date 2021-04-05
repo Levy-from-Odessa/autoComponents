@@ -2,15 +2,15 @@ const fs = require("fs");
 const swig = require("swig")
 const path = require('path');
 
-const componentTemplates = require('../templates/componentTemplates.js')
-const storeTemplates = require('../templates/storeTemplates.js')
-const pageTemplates = require('../templates/pageTemplates.js')
+const componentTemplates = require('../materials/templates/componentTemplates.js')
+const storeTemplates = require('../materials/templates/storeTemplates.js')
+const pageTemplates = require('../materials/templates/pageTemplates.js')
 
 
-const { error, success } = require('../messages')
+const { error, success } = require('../materials/messages')
 
 
-const BLUEPRINT_DIR =  path.dirname(require.main.filename) +'/blueprints'
+const BLUEPRINT_DIR =  path.dirname(require.main.filename) +'/materials/blueprints'
 
 const templateStorage = {
   components: componentTemplates,
@@ -47,10 +47,28 @@ function noneExist(files, path, name) {
 }
 
 
+swig.setFilter('camelCase', (input)=> {
+    return input.split('_').map(function(word,index){
+      if(index == 0){
+        return word.toLowerCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join('');
+})
+
+swig.setFilter('fullName', (input)=> {
+
+  const arrPath = input.split('/')
+  const rootIndex = arrPath.findIndex( item => item === 'components')
+  const fullName = arrPath.slice(rootIndex + 1, arrPath.length).join('_')
+  
+  return fullName
+  
+})
 // render template with props
-function compileTpl(file, {name}){ // actions?, filesType?
+function compileTpl(file, {name, filePath}) { // actions?, filesType?
   const compiled = swig.compileFile(file)
-  return compiled({name})
+  return compiled({name, filePath})
 }  
 
 
@@ -58,14 +76,14 @@ function compileTpl(file, {name}){ // actions?, filesType?
 function createFiles(filePath, name, template, type) {
     const writePath = writeToPath(filePath)
 
-    success(`Detected new component: ${name}, ${filePath}`);
+    success(`Detected new component: ${name}`);
     const files = templateStorage[type][template]
 
 
     if(noneExist(files, filePath, name)){
       Object.entries(files).forEach(([template, value]) => {
         const templateContent = value(name)
-        const tpl = compileTpl(BLUEPRINT_DIR + templateContent.content, {name})
+        const tpl = compileTpl(BLUEPRINT_DIR + templateContent.content, {name, filePath})
         writePath(templateContent.file, tpl);
       });
     }

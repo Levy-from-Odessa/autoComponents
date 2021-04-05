@@ -2,7 +2,7 @@
 const fs = require("fs");
 const chokidar = require('chokidar')
 const { watchSetup } = require('./watch_setup/index')
-const {  success } = require('./messages')
+const {  success } = require('./materials/messages')
 // !MAIN
 
 const WORK_PLACE = fs.existsSync(process.cwd() + '/src') 
@@ -11,20 +11,19 @@ const WORK_PLACE = fs.existsSync(process.cwd() + '/src')
 
 console.log(WORK_PLACE);
 
-console.log(WORK_PLACE);
-success('Start watching'   )
+success('Start watching'  )
 const componentWatcher = chokidar
-  .watch( process.cwd() + "/components/**/**", { ignored: /node_modules/ })
+  .watch( WORK_PLACE + "/components/**/**", { ignored: /node_modules/ })
 
 const pageWatcher = chokidar
-  .watch( process.cwd() + "/pages/**/**", { ignored: /node_modules/ })
+  .watch( WORK_PLACE + "/pages/**/**", { ignored: /node_modules/ })
 
 const storeWatcher = chokidar
-  .watch( process.cwd() + "/store/**/**", { ignored: /node_modules/ })
+  .watch( WORK_PLACE + "/store/**/**", { ignored: /node_modules/ })
   
 
 const serviceWatcher = chokidar
-  .watch( process.cwd() + "/services/**/**", { ignored: /node_modules/ })
+  .watch( WORK_PLACE + "/services/**/**", { ignored: /node_modules/ })
   
 
 
